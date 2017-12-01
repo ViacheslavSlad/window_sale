@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<title>Размеры окна</title>
+<meta charset="utf-8">
+</head>
+<body>
+<div id="allform" align="center">
+<h2 align="center">Укажите размеры окон</h2>
+<form method="post">
+	<p><label for="lenght">Длина</label>
+<input type="text" name="lenght" id="lenght" autocomplete="on" class="input" maxlength="3" minlength="1"  required pattern="^[ 0-9]+$">см</p>
+	<p><label for="width">Ширина</label>
+<input type="text" name="width" id="width" class="input" autocomplete="on" maxlength="3" minlength="1" required pattern="^[ 0-9]+$">см</p>
+	<p><label for="input" id="kiel">Количество окон</label>
+<input type="text" name="input" id="count" class="input" autocomplete="on" maxlength="3" minlength="1" required pattern="^[ 0-9]+$">шт</p>
+</form>
+<p>Выберете материал</p>
+<p><form id="material1">
+	
+	<input type="radio" class="material" id="Plast" name="material" value="10">
+	<label for="Plast">Пластик</label>
+	
+	<input type="radio" id="Wood" class="material" name="material" value="15">
+	<label for="Wood">Дерево</label>
+	
+	<input type="radio" class="material" id="mettal" name="material" value="20">
+	<label for="mettal">Металл</label>
+</form>
+</p>
+<p><div onclick="count()" id="button"><span id="checksum">Счет</span></div></p>
+<p id="price">СУММА</p>
+</div>
+<script type="text/javascript">
+
+function count()
+{
+
+
+	var x_one, y_one, m_one, z_one, summ;
+	x_one = document.getElementById('lenght').value;
+	y_one = document.getElementById('width').value;
+	z_one = document.getElementById('count').value;
+
+	
+m_one = document.getElementById('material1').value;
+	var inp = document.getElementsByName('material');
+    for (var i = 0; i < inp.length; i++) {
+        if (inp[i].type == "radio" && inp[i].checked) {
+          m_one = inp[i].value;
+        }
+    }
+
+	summ = (x_one*y_one*z_one)/100*m_one;
+	document.getElementById('price').innerHTML = summ
+	
+
+	
+	
+	
+}
+</script>
+
+</body>
+</html>
